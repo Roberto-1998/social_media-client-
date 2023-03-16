@@ -52,7 +52,7 @@ const PostWidget = ({
           height={'auto'}
           alt='post'
           style={{ borderRadius: '0.75rem', marginTop: '0.75' }}
-          src={`https://social-media-server.vercel.app/assets/${picturePath}`}
+          src={`../assets/${picturePath}`}
         />
       )}
       <FlexBetween mt={'0.25'}>
