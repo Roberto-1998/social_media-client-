@@ -7,17 +7,17 @@ export const getUserById = async (token, userId) => {
     },
   };
 
-  const { data } = await axios.get(`http://localhost:3001/users/${userId}`, config);
+  const { data } = await axios.get(`/users/${userId}`, config);
   return data;
 };
 
 export const loginUser = async (values) => {
-  const { data } = await axios.post('http://localhost:3001/auth/login', values);
+  const { data } = await axios.post('/auth/login', values);
   return data;
 };
 
 export const registerUser = async (values) => {
-  const { data } = await axios.post('http://localhost:3001/auth/register', values);
+  const { data } = await axios.post('/auth/register', values);
   return data;
 };
 
@@ -28,7 +28,7 @@ export const addRemoveFriend = async (token, userId, friendId) => {
     },
   };
 
-  const { data } = await axios.patch(`http://localhost:3001/users/${userId}/${friendId}`, {}, config);
+  const { data } = await axios.patch(`/users/${userId}/${friendId}`, {}, config);
 
   return data;
 };
@@ -40,7 +40,7 @@ export const getFriendsOfUser = async (token, userId) => {
     },
   };
 
-  const { data } = await axios.get(`http://localhost:3001/users/${userId}/friends`, config);
+  const { data } = await axios.get(`/users/${userId}/friends`, config);
 
   return data;
 };
