@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const baseUrl = process.env.REACT_APP_API_URL;
+
 export const createPost = async (token, values) => {
   const config = {
     headers: {
@@ -7,7 +9,7 @@ export const createPost = async (token, values) => {
     },
   };
 
-  const { data } = await axios.post(`/posts`, values, config);
+  const { data } = await axios.post(`${baseUrl}/posts`, values, config);
   return data;
 };
 
@@ -17,7 +19,7 @@ export const getAllPosts = async (token) => {
       Authorization: `Bearer ${token}`,
     },
   };
-  const { data } = await axios.get(`/posts`, config);
+  const { data } = await axios.get(`${baseUrl}/posts`, config);
   return data;
 };
 
@@ -28,7 +30,7 @@ export const getUserPosts = async (userId, token) => {
     },
   };
 
-  const { data } = await axios.get(`/posts/${userId}/posts`, config);
+  const { data } = await axios.get(`${baseUrl}/posts/${userId}/posts`, config);
   return data;
 };
 
@@ -39,6 +41,6 @@ export const addRemoveLike = async (token, postId, userId) => {
     },
   };
 
-  const { data } = await axios.patch(`/posts/${postId}/like`, { userId }, config);
+  const { data } = await axios.patch(`${baseUrl}/posts/${postId}/like`, { userId }, config);
   return data;
 };
