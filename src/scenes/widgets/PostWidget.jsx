@@ -52,7 +52,7 @@ const PostWidget = ({
           height={'auto'}
           alt='post'
           style={{ borderRadius: '0.75rem', marginTop: '0.75' }}
-          src={`${process.env.REACT_APP}/assets/${picturePath}`}
+          src={`${process.env.REACT_APP_URL_API}/assets/${picturePath}`}
         />
       )}
       <FlexBetween mt={'0.25'}>

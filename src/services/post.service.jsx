@@ -7,7 +7,7 @@ export const createPost = async (token, values) => {
     },
   };
 
-  const { data } = await axios.post(`https://social-media-server.vercel.app/posts`, values, config);
+  const { data } = await axios.post(`${process.env.REACT_APP_URL_API}/posts`, values, config);
   return data;
 };
 
@@ -17,7 +17,7 @@ export const getAllPosts = async (token) => {
       Authorization: `Bearer ${token}`,
     },
   };
-  const { data } = await axios.get(`https://social-media-server.vercel.app/posts`, config);
+  const { data } = await axios.get(`${process.env.REACT_APP_URL_API}/posts`, config);
   return data;
 };
 
@@ -28,7 +28,7 @@ export const getUserPosts = async (userId, token) => {
     },
   };
 
-  const { data } = await axios.get(`https://social-media-server.vercel.app/posts/${userId}/posts`, config);
+  const { data } = await axios.get(`${process.env.REACT_APP_URL_API}/posts/${userId}/posts`, config);
   return data;
 };
 
@@ -39,6 +39,6 @@ export const addRemoveLike = async (token, postId, userId) => {
     },
   };
 
-  const { data } = await axios.patch(`https://social-media-server.vercel.app/posts/${postId}/like`, { userId }, config);
+  const { data } = await axios.patch(`${process.env.REACT_APP_URL_API}/posts/${postId}/like`, { userId }, config);
   return data;
 };
